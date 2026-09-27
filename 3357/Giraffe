@@ -1,0 +1,27 @@
+"""giraffe"""
+Nums = int(input())
+
+giraffes = []
+
+for i in range(Nums):
+    giraffes.append(int(input()))
+
+count = 0
+
+if Nums == 1:
+    count = 1
+else:
+    for i in range(Nums):
+        if not i:
+            if giraffes[i] > giraffes[i + 1]:
+                count += 1
+
+        elif i == Nums - 1:
+            if giraffes[i] > giraffes[i - 1]:
+                count += 1
+
+        else:
+            if giraffes[i] > giraffes[i - 1] and giraffes[i] > giraffes[i + 1]:
+                count += 1
+
+print(count)
