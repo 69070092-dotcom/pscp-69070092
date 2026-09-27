@@ -1,0 +1,35 @@
+"""ย่อ"""
+result = []
+
+start = None
+prev = None
+
+while True:
+    n = int(input())
+
+    if n == -1:
+        break
+
+    if start is None:
+        start = n
+        prev = n
+
+    elif n == prev + 1:
+        prev = n
+
+    else:
+        if start == prev:
+            result.append(str(start))
+        else:
+            result.append(str(start) + "-" + str(prev))
+
+        start = n
+        prev = n
+
+if start is not None:
+    if start == prev:
+        result.append(str(start))
+    else:
+        result.append(str(start) + "-" + str(prev))
+
+print(", ".join(result))
